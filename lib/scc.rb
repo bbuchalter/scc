@@ -1,5 +1,13 @@
 require "scc/version"
 
-module Scc
-  # Your code goes here...
+module SCC
+  class CollectResponses
+    def initialize(url:)
+      @url = url
+    end
+
+    def call
+      puts @url
+    end
+  end
 end
