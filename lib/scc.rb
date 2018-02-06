@@ -6,4 +6,4 @@ end
 require "scc/version"
 require 'scc/collect_responses'
 require 'scc/timer'
-require 'scc/time_http_response'
+require 'scc/stopwatch'

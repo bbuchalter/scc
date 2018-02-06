@@ -1,12 +1,8 @@
 require "test_helper"
 require "minitest/stub/const"
 
-class TimeHttpResponseTest < Minitest::Test
-  def test_benchmark_and_http_are_used_to_time_responses
-    # Create a mock HTTP get that has a call method with no implementation
-    http_get_mock = Minitest::Mock.new
-    def http_get_mock.call; end
-
+class StopwatchTest < Minitest::Test
+  def test_benchmark_is_used_to_time_execution
     # Create a mock BenchmarkTms object to be returned from Benchmark#measure
     benchmark_timing_mock = Minitest::Mock.new
     benchmark_timing_mock.expect(:real, 1.23)
@@ -21,10 +17,7 @@ class TimeHttpResponseTest < Minitest::Test
       # Assert we get the expected value back from Benchmark#measure
       assert_equal(
         1.23,
-        SCC::TimeHttpResponse.new(
-          url: 'https://google.com',
-          http_get: http_get_mock
-        ).call
+        SCC::Stopwatch.call { nil }
       )
     end
 
