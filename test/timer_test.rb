@@ -7,7 +7,7 @@ class TimerTest < Minitest::Test
     assert_equal(2, counter)
   end
 
-  def test_timer_invokes_block_always_rounds_down_call_counts
+  def test_timer_always_rounds_down_call_counts
     counter = 0
     SCC::Timer.new(interval: 3, duration: 7).call { counter += 1 }
     assert_equal(2, counter)
