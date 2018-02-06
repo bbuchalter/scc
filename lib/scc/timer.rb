@@ -2,11 +2,17 @@ module SCC
   # Timer handles the logic of ensuring responses are collected the correct
   # number of times at the correct interval.
   class Timer
+    # @params interval [Integer] Number of seconds between invokations of `call`
+    # @params duration [Integer] Number of seconds `call` should execute, excluding runtime of caller
     def initialize(interval:, duration:)
       @interval = interval
       @duration = duration
     end
 
+    # Call divides the duration by the interval to calculate a "call count" and
+    # invokes the block argument that number of times. Note that call count is
+    # always rounded down.
+    # @params &block [Proc] The code to be invoked at desired interval and for the desired duration
     def call
       call_count.times do |n|
         yield
