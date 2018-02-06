@@ -22,8 +22,13 @@ module SCC
       SCC::Logger.info "[TIMER] Starting timer for #{duration} seconds, with #{interval} second intervals."
       call_count.times do |n|
         yield
-        SCC::Logger.info "[TIMER] Finished #{n+1} of #{call_count} calls. Waiting #{interval} seconds till next call."
-        sleep interval
+
+        SCC::Logger.info "[TIMER] Finished #{n+1} of #{call_count} calls."
+
+        if (n+1) != call_count
+          SCC::Logger.info "[TIMER] Waiting #{interval} seconds till next call."
+          sleep interval
+        end
       end
     end
 

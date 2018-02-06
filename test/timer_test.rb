@@ -1,4 +1,5 @@
 require "test_helper"
+require "scc/stopwatch"
 
 class TimerTest < Minitest::Test
   def test_timer_invokes_block_the_correct_number_of_times
@@ -26,5 +27,14 @@ class TimerTest < Minitest::Test
     assert_raises SCC::Timer::ZeroCallCountError do
       SCC::Timer.new(interval: 1, duration: 0).call { "nothing" }
     end
+  end
+
+  def test_timer_doesnt_sleep_on_last_loop
+    assert_equal(
+      1,
+      SCC::Stopwatch.call do
+        SCC::Timer.new(interval: 1, duration: 2).call { "nothing" }
+      end.to_i
+    )
   end
 end
