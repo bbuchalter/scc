@@ -6,7 +6,12 @@ module SCC
     end
 
     def call
-      @url
+      # collector = SCC::GetHTTPResponse.new(url: url)
+      # timer = SCC::Timer.new(interval: 1, duration: 3)
+      #
+      # responses = []
+      # timer.call { responses << collector.call }
+      # responses
     end
   end
 end
