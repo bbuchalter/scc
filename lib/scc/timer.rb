@@ -2,11 +2,16 @@ module SCC
   # Timer handles the logic of ensuring responses are collected the correct
   # number of times at the correct interval.
   class Timer
+    # The exception raised when the call count is zero.
+    ZeroCallCountError = Class.new(StandardError)
+
     # @params interval [Integer] Number of seconds between invokations of `call`
     # @params duration [Integer] Number of seconds `call` should execute, excluding runtime of caller
     def initialize(interval:, duration:)
       @interval = interval
       @duration = duration
+
+      raise ZeroCallCountError if call_count.zero?
     end
 
     # Call divides the duration by the interval to calculate a "call count" and

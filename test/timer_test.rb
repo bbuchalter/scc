@@ -25,4 +25,10 @@ class TimerTest < Minitest::Test
       timestamps.last - timestamps.first
     )
   end
+
+  def test_timer_raises_exception_if_call_count_is_zero
+    assert_raises SCC::Timer::ZeroCallCountError do
+      SCC::Timer.new(interval: 1, duration: 0).call { "nothing" }
+    end
+  end
 end
