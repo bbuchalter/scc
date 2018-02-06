@@ -9,11 +9,11 @@ module SCC
     attr_reader :responses
 
     def call
-      # collector = SCC::GetHTTPResponse.new(url: url)
+      # time_http_response = SCC::TimeHTTPResponse.new(url: url)
       # timer = SCC::Timer.new(interval: 1, duration: 3)
       #
-      # responses = []
-      # timer.call { responses << collector.call }
+      # http_response_times = []
+      # timer.call { http_response_times << time_http_response.call }
       responses
     end
   end
