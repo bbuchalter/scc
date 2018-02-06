@@ -3,7 +3,10 @@ module SCC
   class CollectResponses
     def initialize(url:)
       @url = url
+      @responses = []
     end
+
+    attr_reader :responses
 
     def call
       # collector = SCC::GetHTTPResponse.new(url: url)
@@ -11,7 +14,7 @@ module SCC
       #
       # responses = []
       # timer.call { responses << collector.call }
-      # responses
+      responses
     end
   end
 end
