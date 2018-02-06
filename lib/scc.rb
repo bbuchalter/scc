@@ -1,13 +1,8 @@
 require "scc/version"
 
+# Top level namespace for SiteCheckCLI (SCC)
 module SCC
-  class CollectResponses
-    def initialize(url:)
-      @url = url
-    end
-
-    def call
-      puts @url
-    end
-  end
 end
+
+# After top level namespace is defined, we can start requiring into that namespace.
+require 'scc/collect_responses'
