@@ -1,8 +1,5 @@
 # Scc
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/scc`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Site Check CLI (SCC) is a command line tool to send HTTP requests to a URL and measure their average response time.
 
 ## Installation
 
@@ -22,7 +19,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After installation, `scc` is exposed as an executable and provides detailed
+usage commands via `scc -h`.
+
+TODO: Provide summary of those commands with examples.
+TODO: Create `scc` executable with this gem.
 
 ## Development
 

@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Brian Buchalter"]
   spec.email         = ["bal711@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Site Check CLI (SCC) is a command line tool to send HTTP requests to a URL and measure their average response time.}
+  spec.description   = %q{Given a URL, a check interval, and a check duration SCC returns the average response time of that URL.}
+  spec.homepage      = "https://github.com/bbuchalter/scc"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
