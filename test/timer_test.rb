@@ -16,4 +16,13 @@ class TimerTest < Minitest::Test
     SCC::Timer.new(interval: 3, duration: 8).call { counter += 1 }
     assert_equal(2, counter)
   end
+
+  def test_timer_honors_interval
+    timestamps = []
+    SCC::Timer.new(interval: 2, duration: 4).call { timestamps << Time.now.to_i }
+    assert_equal(
+      2,
+      timestamps.last - timestamps.first
+    )
+  end
 end

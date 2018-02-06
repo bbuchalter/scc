@@ -16,6 +16,7 @@ module SCC
     def call
       call_count.times do |n|
         yield
+        sleep interval
       end
     end
 
