@@ -19,9 +19,11 @@ module SCC
       )
 
       timer.call do
+        SCC.log.info "[COLLECT] Start request to #{url}."
         self.response_times << SCC::Stopwatch.call do
           Net::HTTP.get_response(URI(url))
         end
+        SCC.log.info "[COLLECT] Finish request to #{url} in #{self.response_times.last} ms."
       end
 
       response_times

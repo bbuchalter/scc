@@ -19,8 +19,10 @@ module SCC
     # always rounded down.
     # @params &block [Proc] The code to be invoked at desired interval and for the desired duration
     def call
+      SCC.log.info "[TIMER] Starting timer for #{duration} seconds, with #{interval} second intervals."
       call_count.times do |n|
         yield
+        SCC.log.info "[TIMER] Finished #{n+1} of #{call_count} calls. Waiting #{interval} seconds till next call."
         sleep interval
       end
     end
