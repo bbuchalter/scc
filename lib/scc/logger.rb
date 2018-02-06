@@ -1,9 +1,14 @@
 require 'logger'
 
 module SCC
-  @logger = Logger.new(STDOUT)
+  # Provides a simple logging interface.
+  class Logger
+    def self.setup(target)
+      @logger = ::Logger.new(target)
+    end
 
-  def self.log
-    @logger
+    def self.info(message)
+      @logger.info(message) if @logger
+    end
   end
 end
