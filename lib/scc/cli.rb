@@ -9,7 +9,6 @@ class CLI < Thor
       interval: 10,
       duration: 60
     ).call
-    puts response_times.inspect
-    # puts SCC::Reporting::Text.new(respones).call
+    puts "Average response time: #{SCC::AverageCalculator.new(numbers: response_times).call}"
   end
 end
