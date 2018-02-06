@@ -7,3 +7,4 @@ require "scc/version"
 require 'scc/collect_response_times'
 require 'scc/timer'
 require 'scc/stopwatch'
+require 'scc/average_calculator'
